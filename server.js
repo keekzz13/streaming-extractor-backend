@@ -22,6 +22,7 @@ app.get('/stream', async (req, res) => {
     if (streams.length === 0) {
       return res.status(404).json({ error: 'No streams found', details: 'Try a different TMDB ID or provider' });
     }
+    console.log(`Found ${streams.length} streams for ${tmdbId}`);
     res.json(streams);
   } catch (error) {
     console.error('Extraction error:', error.message);
